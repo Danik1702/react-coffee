@@ -1,0 +1,34 @@
+@use '../../styles/breakpoints';
+
+.button {
+  border-radius: 24px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  padding: 14px 25px;
+  
+  &.filled {
+    background: #F9C06A;
+    transition-duration: .3s;
+    box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+
+    &:hover {
+      background: #dc9e42;
+      color: #ffffff;
+    }
+  }
+
+  &:not(.filled) {
+    text-decoration: underline;
+    color: #ffffff;
+    
+    &:hover {
+      color: #F9C06A;
+    }
+  }
+
+  @include breakpoints.respond('small-phone') {
+    padding: 10px 16px;
+  }
+}

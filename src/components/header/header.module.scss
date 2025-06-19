@@ -1,0 +1,28 @@
+@use '../../styles/breakpoints';
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  .authButtonsWrap {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+
+  @include breakpoints.respond('tablet') {
+    padding: 0;
+    flex-direction: column;
+
+    .logoSection {
+      margin-bottom: 25px;
+    }
+
+    .authButtonsWrap {
+      margin-top: 25px;
+    }
+  }
+}

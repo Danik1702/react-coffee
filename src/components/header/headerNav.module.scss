@@ -1,0 +1,16 @@
+@use '../../styles/breakpoints';
+
+.headerNav ul {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  .navItem a { 
+    padding: 3px 5px;
+  }
+
+  @include breakpoints.respond('tablet') {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

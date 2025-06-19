@@ -1,0 +1,56 @@
+@use '../../styles/breakpoints';
+
+.inputContainer {
+  width: 100%;
+  background: #FFF9F1;
+  overflow: hidden;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+
+  form {
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+
+    .emailInput {
+      flex: 1;
+      background: #FFF9F1;
+    }
+
+    .submitEmailButton {
+      font-size: 22px;
+      background: #F9C06A;
+      padding: 0 24px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      transition-duration: .3s;
+
+      &:hover:not(:disabled) {
+        background: #dc9e42;
+        color: #ffffff;
+      }
+      
+      &:disabled {
+        cursor: default;
+      }
+    }
+  }
+
+  @include breakpoints.respond('phone') {
+    form .submitEmailButton {
+      height: 44px;
+      font-size: 18px;
+    }
+  }
+
+  @include breakpoints.respond('phone') {
+    form .submitEmailButton {
+      height: 38px;
+      font-size: 16px;
+    }
+  }
+}

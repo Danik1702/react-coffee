@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'small-phone': 480px,
+  'phone': 768px,
+  'tablet': 1024px,
+  'small-desktop': 1280px,
+);
+
+@mixin respond($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $size: map.get($breakpoints, $breakpoint);
+    @media (max-width: $size) {
+      @content;
+    }
+  } @else {
+    @error "No value found for breakpoint `#{$breakpoint}`.";
+  }
+}

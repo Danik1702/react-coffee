@@ -1,0 +1,169 @@
+@use '../../styles/breakpoints';
+
+footer > div > img {
+  max-height: 384px;
+}
+
+.footerContent {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  .footerContentGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 66px;
+
+    .leftSection {
+      .socialsContainer {
+        .socialsDescription {
+          margin: 20px 0;
+          line-height: 160%;
+        }
+  
+        .socialsList {
+          display: flex;
+          gap: 20px;
+        }
+      }
+    }
+    .rightSection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 66px;
+
+      .footerSection {
+        .footerSectionTitle {
+          font-size: 26px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+  
+        .footerSubSectionContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+  
+          .footerSubSectionTitle {
+            font-size: 18px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoints.respond('tablet') {
+    .footerContentGrid {
+      .rightSection {
+        gap: 30px;
+
+        .footerSection {
+          .footerSectionTitle {
+            font-size: 22px;
+            margin-bottom: 14px;
+          }
+
+          .footerSubSectionContainer {
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoints.respond('phone') {
+    .footerContentGrid {
+      gap: 30px;
+
+      .leftSection .socialsContainer {
+        .socialsDescription {
+          display: none;
+        }
+
+        > ul {
+          margin-top: 10px;
+        }
+      }
+      .rightSection {
+        gap: 30px;
+
+        .footerSection {
+          .footerSectionTitle {
+            font-size: 18px;
+            margin-bottom: 6px;
+          }
+
+          .footerSubSectionContainer {
+            gap: 4px;
+              
+            .footerSubSectionTitle {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoints.respond('phone') {
+    .footerContentGrid {
+      .rightSection {        
+        .footerSection {
+          .footerSectionTitle {
+            font-size: 16px;
+            margin-bottom: 8px;
+          }
+
+          .footerSubSectionContainer {
+            gap: 4px;
+              
+            .footerSubSectionTitle {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+    @include breakpoints.respond('small-phone') {
+    .footerContentGrid {
+      grid-template-columns: auto 1fr;
+
+      .leftSection .socialsContainer{
+        > svg {
+          width: 100px;
+        }
+
+        .socialsList {
+          gap: 10px;
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+      .rightSection {
+        gap: 15px;
+        
+        .footerSection {
+          .footerSectionTitle {
+            font-size: 14px;
+            margin-bottom: 4px;
+          }
+          
+          .footerSubSectionContainer {
+            gap: 2px;
+              
+            .footerSubSectionTitle {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

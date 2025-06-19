@@ -1,0 +1,75 @@
+@use '../../styles/breakpoints';
+
+.sliderContainer {
+  position: relative;
+
+  .sliderWrap {
+    width: 100%;
+    max-width: 980px;
+    overflow-x: hidden;
+    padding-bottom: 70px;
+
+    .slider {
+      width: 100%;
+      display: flex;
+      transition-duration: 0.5s;
+
+      .slide {
+        min-width: 100%;
+      }
+    }
+  }
+
+  .prevButtonWrap {
+    position: absolute;
+    z-index: 5;
+    left: -41px;
+    top: calc(50% - 70px);
+  }
+
+  .nextButtonWrap {
+    position: absolute;
+    z-index: 5;
+    right: -41px;
+    top: calc(50% - 70px);
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+  }
+
+  @include breakpoints.respond('small-desktop') {
+    .sliderWrap {
+      max-width: 860px;
+    }
+  }
+
+  @include breakpoints.respond('tablet') {
+    .sliderWrap {
+      max-width: 620px;
+    }
+  }
+
+  @include breakpoints.respond('phone') {
+    .sliderWrap {
+      max-width: 400px;
+    }
+  }
+
+  @include breakpoints.respond('small-phone') {
+    .sliderWrap {
+      max-width: 300px;
+    }
+
+    .prevButtonWrap {
+      left: -30px;
+      top: calc(50% - 30px);
+    }
+    
+    .nextButtonWrap {
+      right: -30px;
+      top: calc(50% - 30px);
+    }
+  }
+}

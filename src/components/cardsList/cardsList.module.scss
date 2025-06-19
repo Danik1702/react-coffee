@@ -1,0 +1,16 @@
+@use '../../styles/breakpoints';
+
+.cardsList {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  @include breakpoints.respond('phone') {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include breakpoints.respond('small-phone') {
+    gap: 50px;
+  }
+}

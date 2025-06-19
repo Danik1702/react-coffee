@@ -1,0 +1,350 @@
+@use '../../styles/breakpoints';
+
+.homePage {
+  overflow-x: hidden;
+
+  .mainBannerContainer {
+    .headerWrap {
+      display: block;
+      transition-duration: .3s;
+    }
+
+    .burgerMenu {
+      display: none;
+    }
+
+    .bannerTextWrap {
+      width: 100%;
+      max-width: 527px;
+      margin-top: 96px;
+
+      .bannerHeader {
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      .bannerIconWrap {
+        margin-top: 45px;
+        margin-bottom: 30px;
+      }
+      
+      .bannerButtonWrap {
+        margin-top: 20px;
+      }
+    }
+
+    @include breakpoints.respond('small-desktop') {
+      .bannerTextWrap {
+        max-width: 100%;
+        margin-top: 30px;
+      }
+    }
+    @include breakpoints.respond('tablet') {      
+      .headerWrap {
+        width: 100%;
+        max-width: 300px;
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        height: 100vh;
+        padding: 20px 0;
+      }
+
+      .burgerMenu {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        top: 20px;
+        right: 20px;
+
+        &.fixed {
+          position: fixed;
+        }
+      }
+      .bannerTextWrap {
+        margin-top: 100px;
+        max-width: 660px;
+
+        .bannerHeader {
+          margin-bottom: 26px;
+
+          &::after {
+            content: "Coffee";
+            margin-left: 10px;
+            font-size: 32px;
+            font-style: italic;
+          }
+        }
+
+        .bannerButtonWrap {
+          margin-top: 10px;
+        }
+
+        .bannerIconWrap {
+          display: none;
+        }
+      }
+    }
+
+    @include breakpoints.respond('phone') {
+      .bannerTextWrap {
+        margin-top: 20px;
+
+        .bannerHeader {
+          font-size: 16px;
+
+          &::after {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+
+    @include breakpoints.respond('small-phone') {
+      .bannerTextWrap {
+        max-width: 320px;
+
+        .bannerHeader {
+          margin-bottom: 10px;
+
+          &::after {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .bestCoffeeContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 100px;
+
+    .bestCoffeeTextWrap {
+      width: 100%;
+      max-width: 585px;
+
+      .bestCoffeeHeader {
+        margin-bottom: 30px;
+      }
+
+      .bestCoffeeButtonWrap {
+        margin-top: 30px;
+      }
+    }
+
+    @include breakpoints.respond('phone') {
+      margin-top: 80px;
+      margin-bottom: 70px;
+    }
+
+    @include breakpoints.respond('small-phone') {
+      flex-direction: column;
+    }
+  }
+
+  .newBlendContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .newBlendHeader {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .newBlendCoffeeListWrap {
+      margin-top: 32px;
+    }
+  }
+
+  .aboutUsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 106px;
+
+    .newBlendHeader {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .aboutUsListWrap {
+      margin: 32px 0;
+    }
+
+    > p {
+      text-align: center;
+    }
+
+    .aboutUsSubHeader {
+      margin: 6px 0 24px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    @include breakpoints.respond('phone') {
+      margin-top: 70px;
+    }
+  }
+
+  .morningCoffeeContainer {
+    margin-top: 82px;
+
+    .morningCoffeeContent {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .morningCoffeeContentWrap {
+        width: 100%;
+        max-width: 575px;
+
+        .morningCoffeeDescription {
+          margin: 22px 0;
+        }
+      }
+    }
+
+    .morningCoffeeImageWrap {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    @include breakpoints.respond('tablet') {
+      .morningCoffeeContent .morningCoffeeContentWrap {
+        > h2 {
+          font-size: 44px;
+        }
+
+        .morningCoffeeDescription {
+          font-size: 18px;
+        }
+      }
+    }
+
+    @include breakpoints.respond('phone') {
+      margin-top: 70px;
+
+      .morningCoffeeContent .morningCoffeeContentWrap {
+        max-width: 360px;
+
+        > h2 {
+          font-size: 28px;
+        }
+
+        .morningCoffeeDescription {
+          font-size: 14px;
+          margin: 12px 0;
+        }
+      }
+    }
+
+    @include breakpoints.respond('small-phone') {
+      .morningCoffeeContent .morningCoffeeContentWrap {
+        max-width: 280px;
+
+        > h2 {
+          font-size: 22px;
+        }
+
+        .morningCoffeeDescription {
+          margin: 6px 0;
+        }
+      }
+    }
+  }
+
+  .feedbackContainer {
+    margin-top: 82px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > h2 {
+      text-align: center;
+    }
+
+    .feedbackDescription {
+      margin: 16px 0 45px;
+    }
+
+    @include breakpoints.respond('phone') {
+      margin-top: 70px;
+
+      .feedbackDescription {
+        margin: 8px 0 20px;
+      }
+    }
+  }
+
+  .subscribeContainer {
+    margin-top: 82px;
+
+    img {
+      max-height: 374px;
+      object-fit: cover;
+    }
+
+    .subscribeContent {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > h2 {
+        text-align: center;
+      }
+
+      .subscribeDescription {
+        margin: 16px 0 26px;
+      }
+
+      .subscribeEmailInoutWrap {
+        width: 100%;
+        max-width: 642px;
+      }
+    }
+
+    @include breakpoints.respond('phone') {
+      margin-top: 70px;
+
+      .subscribeContent {
+        > h2 {
+          font-size: 32px;
+        }
+
+        .subscribeDescription {
+          font-size: 18px;
+          margin: 4px 0 13px;
+        }
+      }
+    }
+
+
+    @include breakpoints.respond('small-phone') {
+      .subscribeContent {
+        > h2 {
+          font-size: 24px;
+        }
+        
+        .subscribeDescription {
+          font-size: 14px;
+          margin: 2px 0 6px;
+        }
+      }
+    }
+  }
+}

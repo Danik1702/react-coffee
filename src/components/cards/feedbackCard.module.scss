@@ -1,0 +1,74 @@
+@use '../../styles/breakpoints';
+
+.feedbackCard {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px 100px 100px;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+  background: #FFF9F1;
+  box-sizing: border-box;
+
+  .feedbackText {
+    font-size: 18px;
+    line-height: 200%;
+    font-weight: 500;
+  }
+
+  .feedbackAuthorName {
+    font-size: 32px;
+    margin: 28px 0 4px;
+  }
+
+  .authorImage {
+    position: absolute;
+    bottom: -56px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+    width: 112px;
+    height: 112px;
+  }
+
+  @include breakpoints.respond('small-desktop') {
+    padding: 80px 60px 80px;
+  }
+
+  @include breakpoints.respond('tablet') {
+    padding: 60px 40px 80px;
+  }
+
+  @include breakpoints.respond('phone') {
+    padding: 40px 40px 80px;
+
+    .feedbackText {
+      font-size: 16px;
+    }
+  }
+
+  @include breakpoints.respond('small-phone') {
+    padding: 40px 40px 60px;
+
+    .feedbackText {
+      font-size: 14px;
+    }
+
+    .authorImage {
+      width: 86px;
+      height: 86px;
+      bottom: -43px;
+    }
+
+    .feedbackAuthorName {
+      font-size: 24px;
+      margin-top: 14px;
+    }
+  }
+}

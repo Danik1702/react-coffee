@@ -1,0 +1,42 @@
+@use '../../styles/breakpoints';
+
+.cardContainer {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 40px;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+  background: #FFF9F1;
+
+  .cardHeader {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 8px;
+  }
+
+  .cardDescription {
+    font-size: 20px;
+  }
+
+  @include breakpoints.respond('small-desktop') {
+    word-break: break-word;
+  }
+
+  @include breakpoints.respond('tablet') {
+    padding: 36px 20px;
+
+    .cardHeader {
+      font-size: 24px;
+    }
+    .cardDescription {
+      font-size: 18px;
+    }
+  }
+
+  @include breakpoints.respond('phone') {
+    padding: 36px 40px;
+  }
+}
