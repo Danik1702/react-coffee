@@ -33,17 +33,12 @@ a {
 
 a, input, button {
   outline: none;
-  outline-width: 2px;
   outline-color: #F9C06A;
   outline-offset: 3px;
 
   &:focus-visible {
-    outline: 2px solid #F9C06A; 
+    outline: 1px solid #F9C06A; 
   }
-}
-
-input[type="email"]:focus:not(:focus-visible) {
-  outline: none !important; /* Remove outline for mouse focus */
 }
 
 a, p {
