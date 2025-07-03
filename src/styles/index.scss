@@ -28,8 +28,21 @@ a {
   &:focus {
     color: #F9C06A;          
     text-decoration: underline;
-    outline: none;
   }
+}
+
+a, input, button {
+  outline: none;
+  outline-width: 2px;
+  outline-offset: 3px;
+
+  &:focus-visible {
+    outline: 2px solid #F9C06A; 
+  }
+}
+
+input[type="email"]:focus:not(:focus-visible) {
+  outline: none !important; /* Remove outline for mouse focus */
 }
 
 a, p {
@@ -42,14 +55,12 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 button {
   border: none;
-  outline: none;
   background: inherit;
   cursor: pointer;
 }
 
 input {
   border: none;
-  outline: none;
 }
 
 .gradient {
