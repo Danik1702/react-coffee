@@ -2,6 +2,7 @@
 
 ## How to Set Up Locally
 - clone project(master branch)
+- cd into project root folder
 - run `npm i`
 - run `npm run dev`
 - check it in localhost (most likely - http://localhost:5173/)
