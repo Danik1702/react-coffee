@@ -1,18 +1,32 @@
+import { useDispatch } from 'react-redux';
+import { addActionModal } from '../../store/reducers/actionModal';
 import { PrimaryButton } from '../button';
-import { HeaderNav } from './HeaderNav';
 import LogoIcon from '../../assets/icons/logo.svg?react';
+import { ACTION_MODAL_APPEARANCE_TIME } from '../../utils/constants';
+import { HeaderNav } from './HeaderNav';
+
 import styles from './header.module.scss';
 
 const SIGN_IN_BUTTON_NAME = 'sign-in';
 const SIGN_UP_BUTTON_NAME = 'sign-up';
 
 export const Header = () => {
+  const dispatch = useDispatch();
+
   const handleAuthClick = (e) => {
     if (e.target.name === SIGN_IN_BUTTON_NAME) {
-      console.log('SIGN_IN_HANDLER');
+      dispatch(addActionModal({
+        id: 'auth-sign-in',
+        title: 'Sign In Action',
+        appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+      }));
     }
     if (e.target.name === SIGN_UP_BUTTON_NAME) {
-      console.log('SIGN_UP_HANDLER');
+      dispatch(addActionModal({
+        id: 'auth-sign-up',
+        title: 'Sign Up Action',
+        appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+      }));
     }
   };
 

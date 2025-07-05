@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { 
   AboutUsCard,
+  ActionCard,
   BackgroundImage,
   CardsList,
   CoffeeCard,
@@ -19,16 +21,28 @@ import CoffeeIcon from '../../assets/icons/coffee.svg?react';
 import coffeeCupImg from '../../assets/img/coffee-cup.png';
 import { 
   ABOUT_US_DATA, 
+  ACTION_MODAL_APPEARANCE_TIME,
   BREAKPOINTS,
   NEW_BLEND_COFFEE_DATA,
   TABLET_BREAKPOINT,
 } from '../../utils/constants';
 import { usePageWidth } from '../../hooks/usePageWidth';
+import { 
+  addActionModal,
+  getActionModalsData,
+  getIsActionModalVisible,
+  removeModal, 
+} from '../../store/reducers/actionModal';
 
 import styles from './home.module.scss';
 
 const HomePage = () => {
   const [isMobileHeaderOpened, setIsMobileHeaderOpened] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const isActionModalVisible = useSelector(getIsActionModalVisible);
+  const actionModalsData = useSelector(getActionModalsData);
 
   useEffect(() => {
     if (isMobileHeaderOpened) {
@@ -51,23 +65,43 @@ const HomePage = () => {
   const pageWidth = usePageWidth(handleCloseMobileHeaderOnResize);
 
   const handleOrderNowClick = () => {
-    console.log('ORDER_NOW');
+    dispatch(addActionModal({
+      id: 'order-now',
+      title: 'Order Now Action',
+      appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+    }));
   };
 
   const handleLearnMoreClick = () => {
-    console.log('LEARN_MORE');
+    dispatch(addActionModal({
+      id: 'learn-more',
+      title: 'Learn More Action',
+      appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+    }));
   };
 
   const handleJoinUsClick = () => {
-    console.log('JOIN_US');
+    dispatch(addActionModal({
+      id: 'join-us',
+      title: 'Join Us Action',
+      appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+    }));
   };
 
   const handleEmailSubmit = (email) => {
-    console.log("EMAIL_SUBMIT: ", email);
+    dispatch(addActionModal({
+      id: 'email submit',
+      title: `Email Submit Action - ${email}`,
+      appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+    }));
   };
 
   const handleBurgerClick = () => {
     setIsMobileHeaderOpened(prevValue => !prevValue);
+  };
+
+  const handleCloseActionModal = (id) => {
+    dispatch(removeModal(id));
   };
 
   const getHeaderTranslateValue = () => {
@@ -80,6 +114,20 @@ const HomePage = () => {
 
   return (
     <div className={styles.homePage}>
+      {isActionModalVisible && (
+        <div className={styles.actionsModal}>
+          {actionModalsData.map(({ id, appearanceTime, title }) => (
+            <ActionCard
+              key={id} 
+              appearanceTime={appearanceTime}
+              onClose={() => handleCloseActionModal(id)}
+            >
+              <p className="text-regular text-black">{title}</p>
+            </ActionCard>
+          ))}
+        </div>
+      )}
+
       <section id="main-banner-section">
         <BackgroundImage
           src={bannerImg}

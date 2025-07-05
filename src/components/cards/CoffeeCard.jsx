@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Image, PrimaryButton } from '../index';
 import styles from './coffeeCard.module.scss';
+import { ACTION_MODAL_APPEARANCE_TIME } from '../../utils/constants';
+import { addActionModal } from '../../store/reducers/actionModal';
 
 export const CoffeeCard = ({
   alt,
@@ -13,6 +16,8 @@ export const CoffeeCard = ({
   const [oderNowBottomPos, setOrderNoBottomPos] = useState(0);
   const buttonRef = useRef(null);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (buttonRef.current) {
       setOrderNoBottomPos(-Math.round(buttonRef.current.offsetHeight / 2));
@@ -20,7 +25,11 @@ export const CoffeeCard = ({
   }, [buttonRef]);
 
   const handleOrderNow = () => {
-    console.log(`COFFEE_CARD - ${title}`)
+    dispatch(addActionModal({
+      id: `order-now-${title}`,
+      title: `Order Now Action - ${title}`,
+      appearanceTime: ACTION_MODAL_APPEARANCE_TIME,
+    }));
   };
 
   return (
