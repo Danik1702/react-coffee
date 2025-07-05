@@ -1,12 +1,12 @@
-# React + Vite
+# Coffee
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to Set Up Locally
+- clone project(master branch)
+- cd into project's root folder
+- run `npm i`
+- run `npm run dev`
+- check it in localhost (most likely - http://localhost:5173/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Demo:
+Deployed to Vercal
+Check this app here: https://react-coffee-black.vercel.app/
