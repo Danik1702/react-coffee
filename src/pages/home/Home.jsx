@@ -14,9 +14,14 @@ import {
   Footer,
   BurgerButton,
 } from "../../components";
-import bannerImg from '../../assets/img/coffee.png';
-import morningCoffeeImg from '../../assets/img/morning-coffee.png';
-import coffeeBeanImg from '../../assets/img/coffee-bean.png';
+import bannerImgL from '../../assets/img/coffee-1280.jpg';
+import bannerImgM from '../../assets/img/coffee-768.jpg';
+import bannerImgS from '../../assets/img/coffee-480.jpg';
+import morningCoffeeImgL from '../../assets/img/morning-coffee-1280.jpg';
+import morningCoffeeImgM from '../../assets/img/morning-coffee-768.jpg';
+import morningCoffeeImgS from '../../assets/img/morning-coffee-480.jpg';
+import coffeeBeanImgM from '../../assets/img/coffee-bean-768.png';
+import coffeeBeanImgS from '../../assets/img/coffee-bean-480.png';
 import CoffeeIcon from '../../assets/icons/coffee.svg?react';
 import coffeeCupImg from '../../assets/img/coffee-cup.png';
 import { 
@@ -26,6 +31,7 @@ import {
   NEW_BLEND_COFFEE_DATA,
   TABLET_BREAKPOINT,
 } from '../../utils/constants';
+import { generateSrcSet } from '../../utils/generateSrcSet';
 import { usePageWidth } from '../../hooks/usePageWidth';
 import { 
   addActionModal,
@@ -130,12 +136,18 @@ const HomePage = () => {
 
       <section id="main-banner-section">
         <BackgroundImage
-          src={bannerImg}
+          src={bannerImgL}
           alt='coffee'
           fetchPriority='high'
           width={1366}
           height={768}
           contentWrapClasses='gradient'
+          srcset={generateSrcSet([
+            [bannerImgL, 1280],
+            [bannerImgM, 768],
+            [bannerImgS, 480],
+          ])}
+          sizes="100vw"
         >
           <div className={`${styles.mainBannerContainer} layout`}>
             <div
@@ -260,11 +272,17 @@ const HomePage = () => {
       <section id="morning-coffee">
         <div className={styles.morningCoffeeContainer}>
           <BackgroundImage
-            src={morningCoffeeImg}
+            src={morningCoffeeImgL}
             alt='morning coffee'
             width={1366}
             height={574}
             contentWrapClasses='coffee-background'
+            srcset={generateSrcSet([
+              [morningCoffeeImgL, 1280],
+              [morningCoffeeImgM, 768],
+              [morningCoffeeImgS, 480],
+            ])}
+            sizes="100vw"
           >
             <div className={`${styles.morningCoffeeContent} layout`}>
               <div className={styles.morningCoffeeContentWrap}>
@@ -287,9 +305,14 @@ const HomePage = () => {
             <div className={styles.morningCoffeeImageWrap}>
               <Image
                 alt="coffee beans"
-                src={coffeeBeanImg}
+                src={coffeeBeanImgM}
                 width={657}
                 height={574}
+                srcset={generateSrcSet([
+                  [coffeeBeanImgM, 768],
+                  [coffeeBeanImgS, 480],
+                ])}
+                sizes="50vw"
               />
             </div>
           </BackgroundImage>
@@ -311,11 +334,17 @@ const HomePage = () => {
       <section id="subscribe">
         <div className={styles.subscribeContainer}>
           <BackgroundImage
-            src={morningCoffeeImg}
+            src={morningCoffeeImgL}
             alt='morning coffee'
             width={1366}
             height={374}
             contentWrapClasses='coffee-background'
+            srcset={generateSrcSet([
+              [morningCoffeeImgL, 1280],
+              [morningCoffeeImgM, 768],
+              [morningCoffeeImgS, 480],
+            ])}
+            sizes="100vw"
           >
             <div className={`${styles.subscribeContent} layout`}>
               <h2 className="text-white section-header">

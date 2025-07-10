@@ -1,8 +1,11 @@
 import React from 'react';
 import { BackgroundImage } from '../index';
-import footerImg from '../../assets/img/footer-image.png';
+import footerImgL from '../../assets/img/footer-image-1280.jpg';
+import footerImgM from '../../assets/img/footer-image-768.jpg';
+import footerImgS from '../../assets/img/footer-image-480.jpg';
 import LogoIcon from '../../assets/icons/logo.svg?react';
 import { SOCIALS, FOOTER_SECTIONS } from '../../utils/constants';
+import { generateSrcSet } from '../../utils/generateSrcSet';
 import styles from './footer.module.scss';
 
 export const Footer = () => {
@@ -10,10 +13,16 @@ export const Footer = () => {
     <footer id="footer">
       <BackgroundImage
         alt="coffee beans"
-        src={footerImg}
+        src={footerImgL}
         width={1366}
         height={384}
         contentWrapClasses="coffee-background"
+        srcset={generateSrcSet([
+          [footerImgL, 1280],
+          [footerImgM, 768],
+          [footerImgS, 480],
+        ])}
+        sizes="100vw"
       >
         <div className={`${styles.footerContent} layout`}>
           <div className={styles.footerContentGrid}>

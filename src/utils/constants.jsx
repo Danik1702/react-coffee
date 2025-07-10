@@ -2,7 +2,7 @@ import cappuccinoImg from '../assets/img/cappuccino.png';
 import chaiLatteImg from '../assets/img/chai-latte.png';
 import espressoImg from '../assets/img/espresso.png'
 import macchiatoImg from '../assets/img/macchiato.png';
-import authorImg from '../assets/img/author.jpeg';
+import authorImg from '../assets/img/author.jpg';
 import CoffeeBeansIcon from '../assets/icons/coffeeBeans.svg?react';
 import BadgeIcon from '../assets/icons/badge.svg?react';
 import CoffeeCup from '../assets/icons/coffeeCup.svg?react';

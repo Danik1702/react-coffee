@@ -6,7 +6,9 @@ export const Image = ({
   src,
   fetchPriority,
   width,
-  height
+  height,
+  srcset,
+  sizes,
 }) => {
   return (
     <img
@@ -16,6 +18,8 @@ export const Image = ({
       fetchPriority={fetchPriority}
       width={width}
       height={height}
+      srcset={srcset}
+      sizes={sizes}
     />
   );
 }
@@ -26,6 +30,8 @@ Image.propTypes = {
   fetchPriority: PropTypes.string,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
+  srcset: PropTypes.string,
+  sizes: PropTypes.string,
 };
 
 Image.defaultProps = {
