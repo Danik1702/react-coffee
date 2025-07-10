@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addActionModal } from '../../store/reducers/actionModal';
 import { PrimaryButton } from '../button';
@@ -10,7 +11,7 @@ import styles from './header.module.scss';
 const SIGN_IN_BUTTON_NAME = 'sign-in';
 const SIGN_UP_BUTTON_NAME = 'sign-up';
 
-export const Header = () => {
+export const Header = ({ isMobileHeaderOpened, onCloseMobileHeader }) => {
   const dispatch = useDispatch();
 
   const handleAuthClick = (e) => {
@@ -31,12 +32,15 @@ export const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header
+      className={styles.header}
+      style={{ '--mobileDisplay': `${isMobileHeaderOpened ? 'flex' : 'none'}` }}
+    >
       <div className={styles.logoSection}>
         <LogoIcon />
       </div>
 
-      <HeaderNav />
+      <HeaderNav onCloseMobileHeader={onCloseMobileHeader} />
 
       <div className={styles.authButtonsWrap}>
         <PrimaryButton 
@@ -55,4 +59,9 @@ export const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  isMobileHeaderOpened: PropTypes.bool,
+  onCloseMobileHeader: PropTypes.func,
 };

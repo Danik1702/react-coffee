@@ -150,14 +150,17 @@ const HomePage = () => {
           sizes="100vw"
         >
           <div className={`${styles.mainBannerContainer} layout`}>
+            <div className={`${styles.burgerMenu} ${isMobileHeaderOpened ? styles.fixed : ''}`}>
+              <BurgerButton isBurgerState={!isMobileHeaderOpened} onClick={handleBurgerClick} />
+            </div>
             <div
               className={styles.headerWrap}
               style={{ transform: `translateX(${getHeaderTranslateValue()}%)` }}
             >
-              <Header />
-            </div>
-            <div className={`${styles.burgerMenu} ${isMobileHeaderOpened ? styles.fixed : ''}`}>
-              <BurgerButton isBurgerState={!isMobileHeaderOpened} onClick={handleBurgerClick} />
+              <Header
+                isMobileHeaderOpened={isMobileHeaderOpened}
+                onCloseMobileHeader={handleBurgerClick}
+              />
             </div>
 
             <div className={styles.bannerTextWrap}>

@@ -14,6 +14,7 @@
   }
 
   @include breakpoints.respond('tablet') {
+    display: var(--mobileDisplay);
     padding: 0;
     flex-direction: column;
 

@@ -5,6 +5,13 @@
   place-items: center;
   padding: 2px;
   cursor: pointer;
+  outline: none;
+  outline-color: #F9C06A;
+  outline-offset: 3px;
+
+  &:focus-visible {
+    outline: 1px solid #F9C06A; 
+  }
 
   .contentWrap {
     width: 100%;
